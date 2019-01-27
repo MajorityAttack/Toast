@@ -11,6 +11,7 @@ import {Platform, StyleSheet, Text, View} from 'react-native';
 
 import {NativeModules} from 'react-native';
 var HelloWorld = NativeModules.HelloWorld;
+var MyCpp = NativeModules.MyCpp;
 
 const instructions = Platform.select({
   ios: 'Press Cmd+R to reload,\n' + 'Cmd+D or shake for dev menu',
@@ -26,8 +27,18 @@ export default class App extends Component<Props> {
   async sayHiFromJava() {
     HelloWorld.sayHi( (err) => {console.log(err)}, (msg) => {console.log(msg)} );
   }
+
+  async helloWorld() {
+    try {
+        let helloWorldStr = await MyCpp.helloWorld();
+        console.log(helloWorldStr);
+    } catch (e) {
+        console.error(e);
+    }
+  }
   
   render() {
+    this.helloWorld();
     return (
       <View style={styles.container}>
         <Text>Invoke native Java code</Text>

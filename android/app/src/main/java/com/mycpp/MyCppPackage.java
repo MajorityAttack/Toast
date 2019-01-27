@@ -1,4 +1,4 @@
-package com.myproject;
+package com.mycpp;
 
 import com.facebook.react.ReactPackage;
 import com.facebook.react.bridge.NativeModule;
@@ -10,7 +10,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
  
-public class HelloWorldPackage implements ReactPackage {
+public class MyCppPackage implements ReactPackage {
  
     @Override
     public List<ViewManager> createViewManagers(ReactApplicationContext reactContext) {
@@ -22,7 +22,7 @@ public class HelloWorldPackage implements ReactPackage {
             ReactApplicationContext reactContext) {
         List<NativeModule> modules = new ArrayList<>();
         //this is where you register the module
-        modules.add(new HelloWorldModule(reactContext));
+        modules.add(new MyCppModule(reactContext));
         return modules;
     }
 }
